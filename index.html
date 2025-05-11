@@ -1,0 +1,36 @@
+<!--
+
+Classe no React:
+Quando vamos trabalhar com classes no React, usamos className no lugar de class, porque class é uma palavra reservada do JavaScript. O className serve para definir classes CSS nos elementos JSX, da mesma forma que faríamos com class no HTML tradicional.
+
+Exemplo:
+<div className="container">
+  <h1 className="titulo">Olá, React!</h1>
+</div>
+
+Importante lembrar:
+O React converte className em class no HTML final que o navegador renderiza.
+
+Podemos usar expressões JavaScript dentro de className com crase e ${} se quisermos aplicar classes dinamicamente:
+
+exemplo:
+const ativo = true;
+<div className={botao ${ativo ? 'ativo' : 'inativo'}}></div>
+
+-->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="src/TodoList.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/App.jsx"></script>
+  </body>
+</html>

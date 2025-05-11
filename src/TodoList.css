@@ -1,0 +1,199 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: #222435;
+    color: white;
+    
+    font-family: 'Roboto' sans-serif;
+}
+/* coringa, e quando tiver o peseudo elemento focus: */ 
+*:focus{
+  /* o elemento focus é um recurso que o proprio navegador ativa quando ta focado o item, nesse caso quando o input é selecionado cria um outline branco */
+  outline: none; /* outinline vai tirar a linha de marcação */
+}
+h1{
+    font-weight: 900;
+    color: #7d83b9;
+    text-align: center;
+    margin-top: 20px;
+}
+form{
+    display: flex;
+    position: relative; /* na tag pai vai ser position realitve por que no botão iremo usar uma postion absolute pra que com de acordo com o tamanho do formulario será encaixado  */
+    width: 600px;
+    height: 60px;
+    
+    margin: 30px auto;
+    margin-bottom: 60px;
+}
+
+input{
+    display: flex;
+    width: 100%; /*Com esse width 100% ele vai pegar 100% do tamanho do formulario */
+    height: 60px;
+    background: #2d3046;
+    border: none;
+    padding-left: 30px; /* damos um prenchimento de 30px pra esquerda pro conteudo ir mais pra direita */
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    
+}
+
+button.add{
+    position: absolute; /*aqui ele vai ter postion absolute, ficando no mesmo lugar sempre */
+    /*top e rigth aqui são os valores do postion absolute */
+    top:0;   /* ele vai ficar encostado no topo */
+    right: 0; /* e vai ficar encostado na direita */
+    background: #363b65;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 25px; /* dei um prenchimento interno de 10px em cima e em baxio e 25px na esquerda e direita */
+    height: 60px;  /* mesma altura do input */
+    border-top-right-radius: 6px ; /* apenas a direita e de cima vão ficar arredondados */
+    border-bottom-right-radius: 6px;
+    /* apenas a direita e de baixo vão ficar arredondados */
+}
+button.add:hover{
+   color: rgba(255, 255, 255, 0.856);
+   background-color: #363f88;
+}
+
+/* div lista de tarefa */
+.lista-tarefas{
+    display: flex; /* Alinha os itens lado a lado */
+    justify-content: center; /* justifica o conteudo no centro */
+    flex-flow: column wrap;
+    /*
+  flex-flow: column wrap;
+  - 'column' faz os itens ficarem em coluna (um embaixo do outro).
+  - 'wrap' permite que eles quebrem a coluna quando não couberem.
+  - Ou seja, se a altura do container for pequena, os itens vão começar uma nova coluna ao lado.
+*/
+    width: 600px; /* mesmo tamanho da tag form */
+    margin: auto;
+  
+}
+.item{
+    display: flex; /*alinha os item um do lado do outro */
+    justify-content: space-between;
+    /* justify-content: space-between;
+  - Alinha os itens no eixo principal (horizontal por padrão).
+  - O primeiro vai pro início, o último vai pro fim.
+  - Espaço igual só entre os itens (nada nas bordas).
+  - Deixa o título (span) à esquerda e o botão à direita.
+  - Cria um espaço flexível entre eles.
+  - Ótimo pra alinhar conteúdo e ações em linha.
+*/
+    border: 1px solid #363b65; /*essa borda vai criar uma divisão entre o novo texto e o rabiscado */
+    color: black;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.item:hover{
+    background: #151627;
+}
+.item span{
+    text-align: start;
+    width: 100%; /* vai ocupar 100% do tamanho */
+    color: white;
+    margin-right: 10px; /* margin a direita de 10px pra afastar um pouquinho do botão */
+    padding: 10px 15px; /* prenchimneto de 10px cima e baixo e 15 esquerda e direita */
+}
+
+/* quando for item e tiver .completo junto, quero que tenha: */
+.item.completo{
+    text-align: start; 
+    display: flex; /*alinha os item um do lado do outro */
+    justify-content: space-between;
+    /* justify-content: space-between;
+  - Alinha os itens no eixo principal (horizontal por padrão).
+  - O primeiro vai pro início, o último vai pro fim.
+  - Espaço igual só entre os itens (nada nas bordas).
+  - Deixa o título (span) à esquerda e o botão à direita.
+  - Cria um espaço flexível entre eles.
+  - Ótimo pra alinhar conteúdo e ações em linha.
+*/
+    background: #1e1f2e;
+    border: none; /*Retirei a borda */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+/* aqui eu stou pegando o texto do span que estiver quando for item e tiver .completo junto, quero que tenha: */ 
+.item.completo span{
+    width: 100%; /* vai ocupar 100% do tamanho */
+    color: #4d516e;
+    text-decoration: line-through; /* deixei a decoração do texto rabiscado /*
+    margin-right: 10px; /* margin a direita de 10px pra afastar um pouquinho do botão */
+    padding: 10px 15px; /* prenchimneto de 10px cima e baixo e 15 esquerda e direita */
+    opacity: 0.8;
+}
+
+/* os botãos de deletar */
+button.del{
+    background:none;
+    border: none;
+    color: #4d516e;
+    padding: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+button.del:hover{
+    background: #ff004c;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    
+}
+.item.completo button.del:hover{
+    background: #ff004c;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.7;
+}
+/* butão deletar todos */
+button.deleteAll{
+    border: 1px solid #ff004c;
+    background: none;
+    padding: 15px;
+    color: #ff004c;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button.deleteAll:hover{
+    background: #ff004c;
+    color: white;
+}
+
+.icon-central {
+    max-width: 100%;
+    height: 50vh;
+    margin-bottom: 25px;
+    
+}
+
+@media screen and (max-width: 900px){
+    form{
+        width: 100%; /* com o width 600px no form ele vai criar uma barra de rolagem, e essa midia vai corrigir isso, se a tela for menor que até 900px, o width vai ocupar 100%, evitando que mesmo com 600px de largura, ele passe do 100%  */
+    }
+    .lista-tarefas{
+        width: 100%;  /*fiz a mesma coisa aqui, com o width 600px na div lista-tarefas ele vai criar uma barra de rolagem, e essa midia vai corrigir isso, se a tela for menor que até 900px, o width vai ocupar 100%, evitando que mesmo com 600px de largura, ele passe do 100%  */
+    }
+}
